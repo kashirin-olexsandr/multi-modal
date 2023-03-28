@@ -7,6 +7,8 @@ document.addEventListener(
       "data-third-modal",
     ];
 
+    const backdrop = document.querySelector(".backdrop");
+
     modals.forEach((element) => {
       const openModalSelector = element + "-open";
       const closeModalSelector = element + "-close";
@@ -15,7 +17,7 @@ document.addEventListener(
       const closeModalBtns = document.querySelectorAll(
         `[${closeModalSelector}]`
       );
-      const modal = document.querySelector("[" + element + "]");
+      const modal = document.querySelector(`[${element}]`);
 
       if (!modal) logModalError("Can`t find Modal with attribute " + modal);
       if (openModalBtns.length === 0)
@@ -36,9 +38,10 @@ document.addEventListener(
         closeBtn.addEventListener("click", toggleModal)
       );
 
+      // backdrop.addEventListener("click", toggleModal);
+
       function toggleModal() {
-        console.log("click");
-        // document.body.classList.toggle("modal-open");
+        document.body.classList.toggle("modal-open");
         modal.classList.toggle("is-hidden");
       }
     });
@@ -46,7 +49,7 @@ document.addEventListener(
   false
 );
 
-// function logModalError(text) {
-//   const styles = "color: #bada55";
-//   console.log("%c" + text, styles);
-// }
+function logModalError(text) {
+  const styles = "color: #bada55";
+  console.log("%c" + text, styles);
+}

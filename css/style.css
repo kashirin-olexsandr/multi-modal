@@ -1,11 +1,14 @@
+body {
+  padding-top: 50px;
+}
+
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 30px;
   width: 800px;
   margin: 0 auto;
-  height: 100vh;
 }
 
 .btn-open {
@@ -38,6 +41,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 1;
   visibility: visible;
+  overflow: auto;
 }
 
 .modal {
@@ -47,6 +51,7 @@
   transform: translate(-50%, -50%);
   width: 400px;
   height: 500px;
+  border-radius: 2%;
 }
 .modal-1 {
   background-color: aqua;
@@ -87,4 +92,8 @@
   font-size: 32px;
   color: rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
+}
+
+.modal-open {
+  overflow: hidden;
 }
