@@ -7,7 +7,6 @@ document.addEventListener(
       "data-third-modal",
     ];
 
-    const backdrop = document.querySelector(".backdrop");
 
     modals.forEach((element) => {
       const openModalSelector = element + "-open";
@@ -37,8 +36,6 @@ document.addEventListener(
       closeModalBtns.forEach((closeBtn) =>
         closeBtn.addEventListener("click", toggleModal)
       );
-
-      // backdrop.addEventListener("click", toggleModal);
 
       function toggleModal() {
         document.body.classList.toggle("modal-open");
