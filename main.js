@@ -7,6 +7,7 @@ document.addEventListener(
       "data-third-modal",
     ];
 
+    
 
     modals.forEach((element) => {
       const openModalSelector = element + "-open";
@@ -29,6 +30,9 @@ document.addEventListener(
         );
       if (!modal || openModalBtns.length === 0 || closeModalBtns.length === 0)
         return;
+      console.log(element);
+      const backdrop = document.querySelector(`[${element}]`);
+         backdrop.addEventListener("click", toggleModalBackdrop)
 
       openModalBtns.forEach((openBtn) =>
         openBtn.addEventListener("click", toggleModal)
@@ -37,9 +41,19 @@ document.addEventListener(
         closeBtn.addEventListener("click", toggleModal)
       );
 
+
+
       function toggleModal() {
         document.body.classList.toggle("modal-open");
         modal.classList.toggle("is-hidden");
+      }
+
+      function toggleModalBackdrop(e) {
+        if(e.currentTarget === e.target){
+          document.body.classList.toggle("modal-open");
+          modal.classList.toggle("is-hidden");
+        }
+
       }
     });
   },
